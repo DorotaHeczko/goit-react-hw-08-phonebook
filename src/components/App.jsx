@@ -1,30 +1,72 @@
-import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from './Filter/Filter';
-import { ContactList } from './ContactList/ContactList';
-import css from './App.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { Routes, Route } from 'react-router-dom';
+import Home from "../pages/Home";
+import Register from "../pages/Register";
+import Login from "../pages/Login";
+import Contacts from "../pages/Contacts";
+import { useDispatch, useSelector} from 'react-redux';
 import { useEffect } from 'react';
-import { fetchContacts } from 'redux/operations';
-import { selectError, selectIsLoading } from 'redux/selectors';
+import operations from 'features/auth/auth-operations';
+import Container from 'components/Container/Container';
+import AppBar from 'components/AppBar';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+import authSelectors from 'features/auth/auth-selectors';
 
-export const App = () => {
+
+
+
+
+const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(operations.fetchCurrentUser());
   }, [dispatch]);
-
+  
   return (
-    <div className={css.box}>
-      <h1>Phonebook</h1>
-      <ContactForm />
+    !isFetchingCurrentUser  && (      
+  
+      <Container >
+  
+        <AppBar/>    
+        
+        
+        <Routes>      
+          <Route path='/' element={<Home />} />
+          
+          <Route path="/register" element={
+            <PublicRoute>
+            <Register/>
+            </PublicRoute>}
+          />
+          
+          <Route path="/login" element={
+            <PublicRoute>
+            <Login/>
+            </PublicRoute>}
+          />
+          
+          <Route path="/contacts" element={
+            <PrivateRoute >
+            <Contacts/>
+            </PrivateRoute>}
+          /> 
+          
+          
+        </Routes>
+      </Container>
+      
+    )
+  )
+  }
 
-      <h2 className={css.title}>Contacts</h2>
-      <Filter />
-      {isLoading ? <p>Loading contacts...</p> : <ContactList />}
-      {error && <p>Data loading error</p>}
-    </div>
-  );
-};
+
+export default App;
+
+
+
+
+
+
+

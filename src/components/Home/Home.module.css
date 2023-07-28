@@ -1,0 +1,24 @@
+.homeBox {
+background-color: rgba(171, 50, 40, 0.23);
+background-image: linear-gradient(90deg, rgba(252, 89, 95, 0.23) 0%, rgba(21, 34, 185, 0.29) 100%);
+background-size: auto;
+background-position: left top;
+background-repeat: repeat;
+  box-shadow: 8px 8px 24px 0px rgba(187, 68, 68, 1);
+  padding: 10px;
+  border-radius: 15px;
+  width: 600px;
+  height: 400px;
+  margin-top: 36px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px;
+  padding: 10px;
+  border-radius: 150px;
+}
+
+.titleBox {
+  text-shadow: 4px 4px 6px rgba(228, 128, 80, 1);
+  text-align: center;
+  padding-top: 100px;
+}
