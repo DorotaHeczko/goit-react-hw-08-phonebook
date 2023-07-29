@@ -35,17 +35,14 @@ export default function LoginView() {
       <div className={css.loginContainer}>
         <h1 className={css.title}>Login page</h1>
 
-        <form
-          className={css.form}
-          onSubmit={handleSubmit}
-          autoComplete="off"
-        >
+        <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
           <label className={css.formLabel}>
             Email
             <input
               className={css.formInput}
               type="email"
               name="email"
+              pattern="^[A-Za-z.'\- ]+$"
               value={email}
               onChange={handleChange}
             />
@@ -57,6 +54,7 @@ export default function LoginView() {
               className={css.formInput}
               type="password"
               name="password"
+              pattern="^[A-Za-z.'\- ]+$"
               value={password}
               onChange={handleChange}
             />

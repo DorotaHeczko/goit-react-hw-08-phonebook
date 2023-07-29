@@ -22,6 +22,7 @@ const Filter = () => {
         <input
           type="text"
           name="filter"
+          pattern="^[A-Za-z.'\- ]+$"
           onChange={handleInputChange}
           className={css.formInput}
         />

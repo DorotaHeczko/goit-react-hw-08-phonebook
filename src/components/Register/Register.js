@@ -45,6 +45,7 @@ return (
             className={css.formInput}
             type="text"
             name="name"
+            pattern="^[A-Za-z.'\- ]+$"
             value={name}
             onChange={handleChange}
           />
@@ -56,6 +57,7 @@ return (
             className={css.formInput}
             type="email"
             name="email"
+            pattern="^[A-Za-z.'\- ]+$"
             value={email}
             onChange={handleChange}
           />
@@ -67,6 +69,7 @@ return (
             className={css.formInput}
             type="password"
             name="password"
+            pattern="^[A-Za-z.'\- ]+$"
             value={password}
             onChange={handleChange}
           />
