@@ -61,7 +61,7 @@ const Form = () => {
               <input
                 type="text"
                 name="name"
-                pattern="^[A-Za-z.'\- ]+$"
+                pattern="^[a-zA-Z]+(\s[a-zA-Z]+)?$"
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
                 placeholder="Enter name"
@@ -76,7 +76,7 @@ const Form = () => {
               <input
                 type="tel"
                 name="number"
-                pattern="^\+?\d{1,4}?\s?\(?\d{1,4}?\)?\s?\d{1,4}\s?\d{1,4}\s?\d{1,9}$"
+                pattern="^\d{3}-\d{3}-\d{3}$"
                 title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                 required
                 placeholder="Enter phone number"
