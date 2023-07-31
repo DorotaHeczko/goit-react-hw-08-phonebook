@@ -17,8 +17,9 @@ const Form = () => {
     
 
 
-    const addContactHandler = () => {
-    
+    const addContactHandler = event => {
+      event.preventDefault();
+      
     const person = {
         id: v4(),
         name: nameContact,
@@ -55,7 +56,7 @@ const Form = () => {
     
         
         return (
-          <form className={css.form}>
+          <form className={css.form} onSubmit= {addContactHandler}>
             <label className={css.formLabel}>
               <p>Name:</p>
               <input
@@ -87,7 +88,6 @@ const Form = () => {
             </label>
 
             <button
-              onSubmit ={() => addContactHandler()}
               type="submit"
               className={css.btn}
             >
