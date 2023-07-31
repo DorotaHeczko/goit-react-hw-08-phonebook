@@ -87,7 +87,7 @@ const Form = () => {
             </label>
 
             <button
-              onClick={() => addContactHandler()}
+              onSubmit ={() => addContactHandler()}
               type="submit"
               className={css.btn}
             >
